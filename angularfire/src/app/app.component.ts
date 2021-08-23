@@ -1,6 +1,13 @@
 import { Component } from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Observable , BehaviorSubject, combineLatest} from 'rxjs';
+import {switchMap} from 'rxjs/operators';
+
+export interface Item {
+  text: string;
+  color: string;
+  size: string;
+}
 
 @Component({
   selector: 'app-root',
@@ -8,8 +15,31 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  items: Observable<any[]>;
-  constructor(firestore: AngularFirestore){
-    this.items=firestore.collection('items').valueChanges();
+  items: Observable<Item[]>;
+  sizeFilter: BehaviorSubject<string|null>;
+  colorFilter: BehaviorSubject<string|null>;
+
+  constructor(afs: AngularFirestore){
+    this.sizeFilter = new BehaviorSubject(null);
+    this.colorFilter = new BehaviorSubject(null);
+    this.items= combineLatest(
+      this.sizeFilter,
+      this.colorFilter
+    ).pipe(
+      switchMap(([size, color]) =>
+        afs.collection('items', ref=>{
+          let query: firebase.firestore.CollectionReference | firebase.firestore.Query= ref;
+          if (size) {query = query.where('size', '==', size)};
+          if (color) {query = query.where('color', '==', color)};
+          return query;
+        }).valueChanges(),
+      )
+    );
+  }
+  filterBySize(size: string|null){
+    this.sizeFilter.next(size);
+  }
+  filterByColor(color: string|null){
+    this.colorFilter.next(color);
   }
 }

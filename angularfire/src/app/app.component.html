@@ -36,5 +36,8 @@
   <button (click)="array1()">Array of codes</button>
   <button (click)="array2()">Array of colors</button>
   <button (click)="array1()">Array of sizes</button>
+  <button (click)="array1$" *ngIf="this.array1$.getValue()">clear filter</button>
+  <button (click)="array2$" *ngIf="this.array2$.getValue()">clear filter</button>
+  <button (click)="array3$" *ngIf="this.array3$.getValue()">clear filter</button>
 </div>
 <router-outlet></router-outlet>

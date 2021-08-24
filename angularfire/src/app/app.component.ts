@@ -1,4 +1,4 @@
-import { Component, Output, Query, QueryList } from '@angular/core';
+import { Component} from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable , BehaviorSubject, combineLatest } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -22,18 +22,21 @@ export class AppComponent {
   sizeFilter$: BehaviorSubject<any>;
   colorFilter$: BehaviorSubject<any>;
   codeFilter$: BehaviorSubject<any>;
-  array$: BehaviorSubject<any>;
-
+  array1$: BehaviorSubject<any>;
+  array2$: BehaviorSubject<any>;
+  array3$: BehaviorSubject<any>;
+ 
   constructor(afs: AngularFirestore) {
     this.sizeFilter$ = new BehaviorSubject(null);
     this.colorFilter$ = new BehaviorSubject(null);
     this.codeFilter$= new BehaviorSubject(null);
-    this.array$= new BehaviorSubject(null);
+    this.array1$= new BehaviorSubject(null);
+    this.array2$= new BehaviorSubject(null);
+    this.array3$= new BehaviorSubject(null);
     this.items$ = combineLatest<Observable<string | null>[]>(
       this.sizeFilter$,
       this.colorFilter$,
       this.codeFilter$,
-      this.array$
     ).pipe(
       switchMap(([size, color, code]) =>
         afs.collection<Item>('items', ref=>{
@@ -57,6 +60,7 @@ export class AppComponent {
   }
   array1(){
     
+
   }
   array2(){
 
@@ -64,4 +68,5 @@ export class AppComponent {
   array3(){
 
   }
+
 }

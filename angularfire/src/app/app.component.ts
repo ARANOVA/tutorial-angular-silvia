@@ -1,9 +1,8 @@
 import { Component} from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable , BehaviorSubject, combineLatest } from 'rxjs';
+import { Observable , BehaviorSubject, combineLatest, pipe } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import * as firebase from 'firebase/app';
-import { query } from '@angular/animations';
 
 export interface Item {
   text: string;
@@ -59,9 +58,14 @@ export class AppComponent {
     this.codeFilter$.next(code);
   }
   array1(){
-    
-
-  }
+    switchMap(([code]) =>
+    afs.collection<Item>('items', (ref: firebase.default.firestore.Query<firebase.default.firestore.DocumentData>) =>{
+      let query: firebase.default.firestore.Query = ref;
+      if (code){query = query.where('code', '==', code)};
+      return query;
+    })
+    )
+}
   array2(){
 
   }

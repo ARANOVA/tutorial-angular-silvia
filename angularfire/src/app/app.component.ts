@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Output, Query, QueryList } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable , BehaviorSubject, combineLatest } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import * as firebase from 'firebase/app';
+import { query } from '@angular/animations';
 
 export interface Item {
   text: string;
@@ -21,15 +22,18 @@ export class AppComponent {
   sizeFilter$: BehaviorSubject<any>;
   colorFilter$: BehaviorSubject<any>;
   codeFilter$: BehaviorSubject<any>;
+  array$: BehaviorSubject<any>;
 
   constructor(afs: AngularFirestore) {
     this.sizeFilter$ = new BehaviorSubject(null);
     this.colorFilter$ = new BehaviorSubject(null);
     this.codeFilter$= new BehaviorSubject(null);
+    this.array$= new BehaviorSubject(null);
     this.items$ = combineLatest<Observable<string | null>[]>(
       this.sizeFilter$,
       this.colorFilter$,
-      this.codeFilter$
+      this.codeFilter$,
+      this.array$
     ).pipe(
       switchMap(([size, color, code]) =>
         afs.collection<Item>('items', ref=>{
@@ -50,5 +54,14 @@ export class AppComponent {
   }
   filterByCode (code: number | null){
     this.codeFilter$.next(code);
+  }
+  array1(){
+    
+  }
+  array2(){
+
+  }
+  array3(){
+
   }
 }

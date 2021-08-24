@@ -31,4 +31,10 @@
   <button (click)="filterByCode(500)">500</button>
   <button (click)="filterByCode(null)" *ngIf="this.codeFilter$.getValue()"><em>clear filter</em></button>
 </div>
+<div>
+  <h4>Arrays</h4>
+  <button (click)="array1()">Array of codes</button>
+  <button (click)="array2()">Array of colors</button>
+  <button (click)="array1()">Array of sizes</button>
+</div>
 <router-outlet></router-outlet>

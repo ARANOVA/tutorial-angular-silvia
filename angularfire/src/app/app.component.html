@@ -2,7 +2,7 @@
 <div *ngIf="items$ | async; let items; else loading">
   <ul>
     <li class="text" *ngFor="let item of items">
-      {{item.text}} {{item.color}} {{item.code}}
+      {{item.text}}
     </li>
   </ul>
   <div *ngIf="items.length === 0">No results, try clearing filters</div>
@@ -25,7 +25,7 @@
 </div>
 <div>
   <h4>Filter by code</h4>
-  <button (click)="filterByCode(5)">5</button>
+  <button (click)="filterByCode(10)">10</button>
   <button (click)="filterByCode(50)">50</button>
   <button (click)="filterByCode(100)">100</button>
   <button (click)="filterByCode(500)">500</button>

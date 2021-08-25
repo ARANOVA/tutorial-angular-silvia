@@ -9,6 +9,7 @@ export interface Item {
   color: string;
   size: string;
   code: number;
+  array: Array<string>;
 }
 
 @Component({
@@ -21,21 +22,18 @@ export class AppComponent {
   sizeFilter$: BehaviorSubject<any>;
   colorFilter$: BehaviorSubject<any>;
   codeFilter$: BehaviorSubject<any>;
-  array1$: BehaviorSubject<any>;
-  array2$: BehaviorSubject<any>;
-  array3$: BehaviorSubject<any>;
+  array$: BehaviorSubject<any>;
  
   constructor(afs: AngularFirestore) {
     this.sizeFilter$ = new BehaviorSubject(null);
     this.colorFilter$ = new BehaviorSubject(null);
     this.codeFilter$= new BehaviorSubject(null);
-    this.array1$= new BehaviorSubject(null);
-    this.array2$= new BehaviorSubject(null);
-    this.array3$= new BehaviorSubject(null);
+    this.array$= new BehaviorSubject(null);
     this.items$ = combineLatest<Observable<string | null>[]>(
       this.sizeFilter$,
       this.colorFilter$,
       this.codeFilter$,
+      this.array$
     ).pipe(
       switchMap(([size, color, code]) =>
         afs.collection<Item>('items', ref=>{
@@ -43,6 +41,7 @@ export class AppComponent {
           if (size) {query = query.where('size', '==', size)};
           if (color) {query = query.where('color', '==', color)};
           if (code){query = query.where('code','<=' ,code)};
+          if (Array){query = query.where('array', 'array-contains', Array)};
           return query;
         }).valueChanges()
       )
@@ -57,20 +56,7 @@ export class AppComponent {
   filterByCode (code: number | null){
     this.codeFilter$.next(code);
   }
-  array1(){
-    switchMap(([code]) =>
-    afs.collection<Item>('items', (ref: firebase.default.firestore.Query<firebase.default.firestore.DocumentData>) =>{
-      let query: firebase.default.firestore.Query = ref;
-      if (code){query = query.where('code', '==', code)};
-      return query;
-    })
-    )
-}
-  array2(){
-
+  array (array: Array<string> | null){
+    this.array$.next(Array);
   }
-  array3(){
-
-  }
-
 }

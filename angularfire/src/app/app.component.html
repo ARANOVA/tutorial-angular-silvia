@@ -32,8 +32,10 @@
   <button (click)="filterByCode(null)" *ngIf="this.codeFilter$.getValue()"><em>clear filter</em></button>
 </div>
 <div>
-  <h4>Do you want an array?</h4>
-  <button (click)="array$">array</button>
+  <h4>Do you want to find an array?</h4>
+  <input #participant type="text" placeholder="Type something to find in item.participants"/>
+  <button (click)="findParticipant()">Search</button>
+  <button (click)="findParticipant(null)" *ngIf="this.participantFilter$.getValue()"><em>clear filter</em></button>
 </div>
 
 <router-outlet></router-outlet>

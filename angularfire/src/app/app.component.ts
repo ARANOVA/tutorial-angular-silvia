@@ -44,7 +44,7 @@ export class AppComponent {
           if (size) { query = query.where('size', '==', size) };
           if (color) { query = query.where('color', '==', color) };
           console.log("code", code)
-          if (code) { query = query.limit(5) };
+          if (code) { query = query.where('code', '==', code) };
           console.log("participant", participant)
           if (participant) {
             query = query.where('participants', 'array-contains', participant);

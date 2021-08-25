@@ -25,10 +25,10 @@
 </div>
 <div>
   <h4>Filter by code</h4>
-  <input #code type="number" placeholder="maximum in item.code"/><br>
-  <input #code type="number" placeholder="minimum in item.code"/><br>
+  <input #codeMax type="number" placeholder="maximum in item.code"/><br>
+  <input #codeMin type="number" placeholder="minimum in item.code"/><br>
   <button (click)="filterByCode()">Let´s try</button>
-  <button (click)="filterByCode(null)" *ngIf="this.codeFilter$.getValue()"><em>clear filter</em></button>
+  <button (click)="filterByCode(null, null)" *ngIf="this.codeMinFilter$.getValue() || this.codeMaxFilter$.getValue()"><em>clear filter</em></button>
 </div>
 <div>
   <h4>Do you want to find an array?</h4>

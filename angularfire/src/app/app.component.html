@@ -34,7 +34,10 @@
   <h4>Do you want to find an array?</h4>
   <input #participant type="text" placeholder="Type something to find in item.participants"/><br>
   <button (click)="findParticipant()">Search</button>
-  <button (click)="findParticipant(null)" *ngIf="this.participantFilter$.getValue()"><em>clear filter</em></button><br>
+  <button (click)="findParticipant(null)" *ngIf="this.participantFilter$.getValue()"><em>clear filter</em></button><br><br>
+  <input #title type="text" placeholder="Type a title!"/><br>
+  <button (click)="findTitle()">Try to find it!</button>
+  <button (click)="findTitle(null)" *ngIf="this.titleFilter$.getValue()">clearfilter</button>
  </div>
 
 <router-outlet></router-outlet>

@@ -10,6 +10,7 @@ export interface Item {
   size: string;
   code: number;
   participants: Array<string>;
+  title: Array<string>;
 }
 
 @Component({
@@ -29,6 +30,7 @@ export class AppComponent {
   @ViewChild('participant') participant!: ElementRef;
   @ViewChild('codeMin') codeMin!: ElementRef;
   @ViewChild('codeMax') codeMax!: ElementRef;
+  @ViewChild('title') title!: ElementRef;
 
   constructor(afs: AngularFirestore) {
     this.sizeFilter$ = new BehaviorSubject(null);
@@ -60,6 +62,7 @@ export class AppComponent {
           if (participant) {
             query = query.where('participants', 'array-contains', participant);
           };
+          if (title) {query = query.where('title', 'array-contains', title)};
           return query;
         }).valueChanges()
         }
@@ -95,6 +98,14 @@ export class AppComponent {
       this.participant.nativeElement.value = '';
     }
     this.participantFilter$.next(value);
+  }
+  findTitle(value?: string | null): void{
+    if(value === undefined){
+      value = this.title.nativeElement.value;
+    } else {
+      this.title.nativeElement.value='';
+    }
+    this.titleFilter$.next(value);
   }
 
 }

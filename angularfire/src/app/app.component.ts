@@ -25,6 +25,7 @@ export class AppComponent {
   participantFilter$: BehaviorSubject<any>;
 
   @ViewChild('participant') participant!: ElementRef;
+  @ViewChild('code') code!: ElementRef;
 
   constructor(afs: AngularFirestore) {
     this.sizeFilter$ = new BehaviorSubject(null);
@@ -37,12 +38,13 @@ export class AppComponent {
       this.codeFilter$,
       this.participantFilter$
     ).pipe(
-      switchMap(([size, color, code, participant]) =>
+      switchMap(([size, color, code, participant, title]) =>
         afs.collection<Item>('items', ref => {
           let query: firebase.default.firestore.Query = ref;
           if (size) { query = query.where('size', '==', size) };
           if (color) { query = query.where('color', '==', color) };
-          if (code) { query = query.where('code', '<=', code) };
+          console.log("code", code)
+          if (code) { query = query.limit(5) };
           console.log("participant", participant)
           if (participant) {
             query = query.where('participants', 'array-contains', participant);
@@ -58,9 +60,13 @@ export class AppComponent {
   filterByColor(color: string | null) {
     this.colorFilter$.next(color);
   }
-  filterByCode(code: number | null) {
-    this.codeFilter$.next(code);
-  }
+  filterByCode(code?: number | null) {
+    if ( code = 0, code <=250){
+        this.codeFilter$.next(code);
+      } else{
+        this.codeFilter$.next(code);
+      } 
+    }
 
   findParticipant(value?: string | null): void {
     if (value === undefined) {
@@ -70,4 +76,5 @@ export class AppComponent {
     }
     this.participantFilter$.next(value);
   }
+
 }

@@ -25,17 +25,16 @@
 </div>
 <div>
   <h4>Filter by code</h4>
-  <button (click)="filterByCode(10)">10</button>
-  <button (click)="filterByCode(50)">50</button>
-  <button (click)="filterByCode(100)">100</button>
-  <button (click)="filterByCode(500)">500</button>
+  <input #code type="number" placeholder="maximum in item.code"/><br>
+  <input #code type="number" placeholder="minimum in item.code"/><br>
+  <button (click)="filterByCode()">Let´s try</button>
   <button (click)="filterByCode(null)" *ngIf="this.codeFilter$.getValue()"><em>clear filter</em></button>
 </div>
 <div>
   <h4>Do you want to find an array?</h4>
-  <input #participant type="text" placeholder="Type something to find in item.participants"/>
+  <input #participant type="text" placeholder="Type something to find in item.participants"/><br>
   <button (click)="findParticipant()">Search</button>
-  <button (click)="findParticipant(null)" *ngIf="this.participantFilter$.getValue()"><em>clear filter</em></button>
-</div>
+  <button (click)="findParticipant(null)" *ngIf="this.participantFilter$.getValue()"><em>clear filter</em></button><br>
+ </div>
 
 <router-outlet></router-outlet>

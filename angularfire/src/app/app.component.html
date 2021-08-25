@@ -33,7 +33,7 @@
 </div>
 <div>
   <h4>Do you want an array?</h4>
-  <button (click)="array$">array</button>
+  <button (click)="array('string[]')" *ngIf="this.array$.getValue()">array</button>
 </div>
 
 <router-outlet></router-outlet>

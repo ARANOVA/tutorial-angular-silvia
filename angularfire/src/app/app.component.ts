@@ -9,7 +9,7 @@ export interface Item {
   color: string;
   size: string;
   code: number;
-  array: Array<string>;
+  title: Array<string>;
 }
 
 @Component({
@@ -35,13 +35,13 @@ export class AppComponent {
       this.codeFilter$,
       this.array$
     ).pipe(
-      switchMap(([size, color, code]) =>
+      switchMap(([size, color, code, title]) =>
         afs.collection<Item>('items', ref=>{
           let query: firebase.default.firestore.Query = ref;
           if (size) {query = query.where('size', '==', size)};
           if (color) {query = query.where('color', '==', color)};
           if (code){query = query.where('code','<=' ,code)};
-          if (Array){query = query.where('array', 'array-contains', Array)};
+          if (title){query = query.where('array', 'array-contains', Array)};
           return query;
         }).valueChanges()
       )
@@ -56,7 +56,7 @@ export class AppComponent {
   filterByCode (code: number | null){
     this.codeFilter$.next(code);
   }
-  array (array: Array<string> | null){
-    this.array$.next(Array);
+  array (title: Array<string> | null){
+    this.array$.next(title);
   }
 }

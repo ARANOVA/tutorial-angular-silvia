@@ -1,1 +1,120 @@
 /* You can add global styles to this file, and also import other style files */
+@use '~@angular/material' as mat;
+@use 'sass:map';
+@include mat.core();
+
+
+$black-87-opacity: rgba(black, 0.87);
+$white-87-opacity: rgba(white, 0.87);
+$white: white;
+$black: black;
+
+$theme-d-palette: (
+    50: #e3edf5,
+    100: #d6e5f0,
+    200: #bad3e7,
+    300: #9fc2dd,
+    400: #84b1d4,
+    500: #69a0cb,
+    600: #5c5c5c,
+    700: #474747,
+    800: #303030,
+    900: #1f1f1f,
+    A100: #d4a684,
+    A200: #cb9369,
+    A400: #825e43,
+    A700: #4a3627,
+    contrast: (
+        50: $black-87-opacity,
+        100: $black-87-opacity,
+        200: $black-87-opacity,
+        300: $black-87-opacity,
+        400: $black-87-opacity,
+        500: $black,
+        600: white,
+        700: white,
+        800: $white-87-opacity,
+        900: $white-87-opacity,
+        A100: $black-87-opacity,
+        A200: $black,
+        A400: white,
+        A700: white,
+    ),
+);
+
+$theme-brand-palette: (
+    success: #48bb78,
+    info: #4299e1,
+    danger: #f56565,
+    warning: #ed8936,
+);
+$brand-success: map.get($theme-brand-palette, "success");
+$brand-info: map.get($theme-brand-palette, "info");
+$brand-danger: map.get($theme-brand-palette, "danger");
+$brand-warning: map.get($theme-brand-palette, "warning");
+
+$angular-primary: mat.define-palette($theme-d-palette, 500, 200, 800);
+$angular-accent: mat.define-palette($theme-d-palette, A200, A100, A400);
+$angular-warn: mat.define-palette(mat.$red-palette);
+
+$app-typography: mat.define-typography-config(
+    $font-family:   'Poppins, sans-serif',
+    $display-4:     mat.define-typography-level(112px, 112px, 300, $letter-spacing: -0.05em),
+    $display-3:     mat.define-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+    $display-2:     mat.define-typography-level(45px, 48px, 400, $letter-spacing: -0.005em),
+    $display-1:     mat.define-typography-level(34px, 40px, 400),
+    $headline:      mat.define-typography-level(24px, 32px, 400),
+    $title:         mat.define-typography-level(22px, 28px, 500),
+    $subheading-2:  mat.define-typography-level(16px, 28px, 400),
+    $subheading-1:  mat.define-typography-level(15px, 24px, 400),
+    $body-2:        mat.define-typography-level(14px, 24px, 500),
+    $body-1:        mat.define-typography-level(14px, 20px, 400),
+    $caption:       mat.define-typography-level(12px, 20px, 400),
+    $button:        mat.define-typography-level(14px, 14px, 500),
+    $input:         mat.define-typography-level(inherit, 1.125, 400)
+);
+
+$angular-dark-theme: mat.define-dark-theme(
+    (
+        color: (
+            primary: $angular-primary,
+            accent: $angular-accent,
+            warn: $angular-warn,
+        ),
+        typography: $app-typography,
+    )
+);
+
+@include mat.core($app-typography);
+
+$app-theme: map-merge(
+    $angular-dark-theme,
+    (
+        color:
+            map-merge(
+                map-get($angular-dark-theme, color),
+                (
+                    background: (
+                        status-bar: black,
+                        app-bar: #1f1f1f,
+                        background: #1f1f1f,
+                        hover: rgba(white, 0.04),
+                        // TODO(kara): check style with Material Design UX
+                        card: #303030,
+                        dialog: #303030,
+                        disabled-button: rgba(white, 0.12),
+                        raised-button: #303030,
+                        focused-button: #303030,
+                        selected-button: #1f1f1f,
+                        selected-disabled-button: #303030,
+                        disabled-button-toggle: black,
+                        unselected-chip: #474747,
+                        disabled-list-option: black,
+                        tooltip: #474747,
+                    ),
+                )
+            ),
+    )
+);
+
+@include mat.all-component-themes($app-theme);

@@ -1,9 +1,7 @@
 <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with menu ">
         <mat-icon>menu</mat-icon>
     </button>
-    <button mat-stroked-button color="accent">Accent</button>
-    <span class="example-spacer"></span>
     <span>Proyecto Escritora</span>
     <span class="example-spacer"></span>
     <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
@@ -13,4 +11,26 @@
       <mat-icon>share</mat-icon>
     </button>
   </mat-toolbar>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>T</mat-icon>
+      <span>Talleres y Cursos</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>E</mat-icon>
+      <span>Editoriales Sugeridas</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>S</mat-icon>
+      <span>Servicios Editoriales</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>TA</mat-icon>
+      <span>Tarifas de Edición</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>AG</mat-icon>
+      <span>Agentes Literarios</span>
+    </button>
+  </mat-menu>
 <router-outlet></router-outlet>

@@ -1,3 +1,49 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with menu ">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span><a href="../app.component.html">Proyecto Escritora</a></span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>LI</mat-icon>
+      <span><a href="./libros-recomendados/libros-recomendados.component.html">Libros recomendados</a></span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>T</mat-icon>
+      <span>Talleres y Cursos</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>E</mat-icon>
+      <span>Editoriales Sugeridas</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>S</mat-icon>
+      <span>Servicios Editoriales</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>TA</mat-icon>
+      <span>Tarifas de Edición</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>AG</mat-icon>
+      <span>Agentes Literarios</span>
+    </button>
+  </mat-menu>
+ <mat-sidenav-container class="container">
+    <mat-sidenav class="sidenav" mode="side">
+      </mat-sidenav>
+      <h1>Géneros</h1>
+      <mat-divider></mat-divider>
+      <h1>Autores</h1>
+  </mat-sidenav-container>
 <h1>Libros recomendados de la semana</h1>
 <mat-grid-list cols="5"class="grid-list">
     <mat-grid-tile>
@@ -5,7 +51,7 @@
           <mat-card-header>
             <div mat-card-avatar class="image"></div>
             <mat-card-title>Drácula</mat-card-title>
-            <mat-card-subtitle></mat-card-subtitle>
+            <mat-card-subtitle>Bram Stoker</mat-card-subtitle>
           </mat-card-header>
           <img mat-card-image src="https://www.lifeder.com/wp-content/uploads/2016/06/51SuvFHaXKL._AC_US160_.jpg">
           <mat-card-content>
@@ -21,6 +67,7 @@
               <mat-card-header>
                   <div mat-card-avatar class="image"></div>
                   <mat-card-title>Frankenstein</mat-card-title>
+                  <mat-card-subtitle>Mary Shelley</mat-card-subtitle>
               </mat-card-header>
               <img mat-card-image src="https://www.lifeder.com/wp-content/uploads/2016/06/518RmFJV12L._AC_US160_.jpg">
               <mat-card-content>
@@ -35,4 +82,98 @@
               </mat-card-content>
           </mat-card>
       </mat-grid-tile>
+      <mat-grid-tile>
+          <mat-card>
+             <mat-card-header>
+                 <div mat-card-avatar class="immage"></div>
+                 <mat-card-title>Misery</mat-card-title>
+                 <mat-card-subtitle>Stephen King</mat-card-subtitle>
+             </mat-card-header> 
+          </mat-card>
+          <img mat-card-img src="https://www.lifeder.com/wp-content/uploads/2016/06/51QHoosfFfL._SL160_PIsitb-sticker-arrow-dpTopRight12-18_SH30_OU30_AC_US160_.jpg">
+          <mat-card-content>
+              <p>SINOPSIS:
+                Stephen King nos cuenta la historia de un escritor que sufre un accidente. Al despertar, observa que se encuentra en una apartada casa que pertenece a una extraña mujer. 
+                A medida que avanza la trama, el protagonista verá como la locura de la mujer va en aumento.
+              </p>
+          </mat-card-content>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card>
+           <mat-card-header>
+               <div mat-card-avatar class="immage"></div>
+               <mat-card-title>carrie</mat-card-title>
+               <mat-card-subtitle>Stephen King</mat-card-subtitle>
+           </mat-card-header> 
+        </mat-card>
+        <img mat-card-img src="https://www.lifeder.com/wp-content/uploads/2016/06/41zsrlB5XaL._AC_US160_.jpg">
+        <mat-card-content>
+            <p>SINOPSIS:
+                Carrie se trata de una profunda y angustiosa historia de una pequeña niña que descubre una capacidad innata para desarrollar superpoderes. 
+                Lo interesante es la motivación por la cual la niña se mueve: la sed de venganza.               
+            </p>
+        </mat-card-content>
+</mat-grid-tile>
+<mat-grid-tile>
+    <mat-card>
+       <mat-card-header>
+           <div mat-card-avatar class="immage"></div>
+           <mat-card-title>El exorcista</mat-card-title>
+           <mat-card-subtitle>William Peter Blatty</mat-card-subtitle>
+       </mat-card-header> 
+    </mat-card>
+    <img mat-card-img src="https://www.lifeder.com/wp-content/uploads/2016/06/51C7wcgeGgL._SL160_PIsitb-sticker-arrow-dpTopRight12-18_SH30_OU30_AC_US160_.jpg">
+    <mat-card-content>
+        <p>SINOPSIS:
+            De nuevo, una nueva historia basada en hechos reales. En esta ocasión, 
+            en un chico de 12 años que sufrió un exorcismo en Washington.
+Este libro se trata de uno de los mayores best seller de la historia del género de terror.            
+        </p>
+    </mat-card-content>
+</mat-grid-tile>
+<mat-grid-tile>
+    <mat-card>
+       <mat-card-header>
+           <div mat-card-avatar class="immage"></div>
+           <mat-card-title></mat-card-title>
+<mat-card-subtitle></mat-card-subtitle>
+       </mat-card-header> 
+    </mat-card>
+    <img mat-card-img src="">
+    <mat-card-content>
+        <p>
+            
+        </p>
+    </mat-card-content>
+</mat-grid-tile>
+<mat-grid-tile>
+    <mat-card>
+       <mat-card-header>
+           <div mat-card-avatar class="immage"></div>
+           <mat-card-title></mat-card-title>
+<mat-card-subtitle></mat-card-subtitle>
+       </mat-card-header> 
+    </mat-card>
+    <img mat-card-img src="">
+    <mat-card-content>
+        <p>
+            
+        </p>
+    </mat-card-content>
+</mat-grid-tile>
+<mat-grid-tile>
+    <mat-card>
+       <mat-card-header>
+           <div mat-card-avatar class="immage"></div>
+           <mat-card-title></mat-card-title>
+<mat-card-subtitle></mat-card-subtitle>
+       </mat-card-header> 
+    </mat-card>
+    <img mat-card-img src="">
+    <mat-card-content>
+        <p>
+            
+        </p>
+    </mat-card-content>
+</mat-grid-tile>
   </mat-grid-list>

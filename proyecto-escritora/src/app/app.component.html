@@ -12,7 +12,7 @@
     </button>
   </mat-toolbar>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
+    <button mat-menu-item (click)="navigate(['/', 'libros'])">
       <mat-icon>LI</mat-icon>
       <span>Libros recomendados</span>
     </button>
@@ -36,28 +36,6 @@
       <mat-icon>AG</mat-icon>
       <span>Agentes Literarios</span>
     </button>
-  </mat-menu>
- <mat-sidenav-container class="container">
-    <mat-sidenav class="sidenav" mode="side">
-      </mat-sidenav>
-      <h1>Géneros</h1>
-      <mat-divider></mat-divider>
-      <h1>Autores</h1>
-  </mat-sidenav-container>
-  <mat-grid-list cols="1"class="grid-list">
-      <mat-grid-tile>
-          <mat-card>
-            <mat-card-header>
-              <div mat-card-avatar class="image"></div>
-              <mat-card-title>Para amantes de los libros</mat-card-title>
-              <mat-card-subtitle>y para los escritores</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="https://usscl.blob.core.windows.net/upload/sites/8/2017/05/libro.jpg" alt="Foto de corazón">
-            <mat-card-content>
-              <p>Si estás buscando una página donde encontrar sugerencias de libros, o quieres escribir y publicar el tuyo propio, esto es para ti.
-                ¡Disfruta del viaje!</p>
-            </mat-card-content>
-          </mat-card>
-        </mat-grid-tile>
-    </mat-grid-list>
+</mat-menu>
+
 <router-outlet></router-outlet>

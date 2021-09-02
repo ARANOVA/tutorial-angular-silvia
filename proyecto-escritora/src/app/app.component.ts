@@ -1,7 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, NgZone, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { BehaviorSubject } from 'rxjs';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,14 +11,17 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 
 export class AppComponent {
   title = 'proyecto-escritora';
-  MatMenuTrigger: BehaviorSubject<any>;
-  @ViewChild('MatMenuTriggerFor') trigger!: MatMenuTrigger;
-  constructor(){
-    this.MatMenuTrigger = new BehaviorSubject(null);
+
+  constructor(
+    private _router: Router,
+    private _ngZone: NgZone
+    ) {
   }
 
-  someMethod() {
-    this.trigger.openMenu();
+  navigate(route: string[]) {
+    this._ngZone.run(() => {
+      this._router.navigate(route);
+    });
   }
 
 }

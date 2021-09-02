@@ -19,6 +19,7 @@ import { LibrosRecomendadosComponent } from './libros-recomendados/libros-recome
 import { EditorialesSugeridasComponent } from './editoriales-sugeridas/editoriales-sugeridas.component';
 import { ServiciosEditorialesComponent } from './servicios-editoriales/servicios-editoriales.component';
 import { TarifasEdicionComponent } from './tarifas-edicion/tarifas-edicion.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TarifasEdicionComponent } from './tarifas-edicion/tarifas-edicion.compo
     LibrosRecomendadosComponent,
     EditorialesSugeridasComponent,
     ServiciosEditorialesComponent,
-    TarifasEdicionComponent
+    TarifasEdicionComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,23 @@
-<h1>Agentes literarios de interés</h1>
+<h1>Talleres de interés</h1>
 
 <div *ngIf="talleres">
-
+    <mat-list>
+        <mat-list-item *ngFor="let taller of talleres">
+          <h3 matLine> {{taller.nombre}} </h3>
+          <p matLine>
+            <span> {{taller.descripcion}} </span>
+          </p>
+          <mat-divider></mat-divider> 
+          <form class="form">
+            <mat-form-field class="full-width" appearance="fill">
+              <mat-label>Nombre</mat-label>
+              <input matInput placeholder="type your name" value="name">
+            </mat-form-field>
+          </form>
+          <mat-divider></mat-divider>
+          <button (click)="openDialog()">Suscríbete</button>
+        </mat-list-item>
+      </mat-list>
 </div>
 
 <button (click)="navigate(['/', 'home'])">Back</button>

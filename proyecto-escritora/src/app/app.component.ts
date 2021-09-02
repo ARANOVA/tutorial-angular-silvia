@@ -20,11 +20,13 @@ export class AppComponent {
     ) {
   }
 
-  toggle() {
-    this.opened = !this.opened;
-    console.log(this.sidenav);
-    this.sidenav.toggle();
+  reason = '';
+
+  close(reason: string) {
+    this.reason = reason;
+    this.sidenav.close();
   }
+  
   navigate(route: string[]) {
     this._ngZone.run(() => {
       this._router.navigate(route);

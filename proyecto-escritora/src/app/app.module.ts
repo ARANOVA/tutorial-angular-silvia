@@ -11,6 +11,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
+import { MatListModule } from '@angular/material/list';
+import {MatInputModule} from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,7 +51,10 @@ import { AgentesLiterariosComponent } from './agentes-literarios/agentes-literar
     MatCardModule,
     MatSidenavModule,
     MatDividerModule,
-    MatTableModule
+    MatTableModule,
+    MatListModule,
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

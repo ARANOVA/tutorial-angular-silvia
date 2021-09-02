@@ -20,7 +20,7 @@ const serv_data: servicio[] = [
   styleUrls: ['./servicios-editoriales.component.scss']
 })
 export class ServiciosEditorialesComponent implements OnInit {
-  servicios: servicio | undefined;
+  servicios: servicio[] | undefined;
 
   displayedColumns: string[] = ['posicion', 'nombre'];
   dataSource = serv_data;

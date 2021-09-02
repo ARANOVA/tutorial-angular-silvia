@@ -48,9 +48,10 @@ $dark-theme: mat.define-dark-theme((
    accent: $dark-accent,
  )
 ));
-
-@include mat.core-theme($dark-theme);
-@include mat.button-theme($dark-theme);
+.my-dark-theme{ 
+  @include mat.core-theme($dark-theme);
+  @include mat.button-theme($dark-theme);
+}
 
 .my-light-theme {
   @include mat.core-color($light-theme);

@@ -1,4 +1,8 @@
 <mat-toolbar color="primary">
+  <button mat-icon-button (click)="toggle()">
+      <mat-icon>close</mat-icon>
+  </button>
+
     <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with menu ">
         <mat-icon>menu</mat-icon>
     </button>
@@ -38,4 +42,21 @@
     </button>
 </mat-menu>
 
-<router-outlet></router-outlet>
+<mat-drawer-container class="example-container">
+  <mat-drawer mode="side" opened>
+    <mat-sidenav-container color="accent" class="container">
+      <mat-sidenav class="sidenav" mode="side" #sidenav [(opened)]="opened">
+        </mat-sidenav>
+        <h1>Géneros</h1>
+        <mat-divider></mat-divider>
+        <h1>Autores</h1>
+    </mat-sidenav-container>    
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+<mat-toolbar class="footer" color="accent">
+  <p>Copy</p>
+</mat-toolbar>

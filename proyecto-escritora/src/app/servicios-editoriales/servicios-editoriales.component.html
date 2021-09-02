@@ -1,5 +1,5 @@
 <h1>Servicios Editoriales disponibles en la web</h1>
-<div *ngIf="servicios">
+<div *ngIf="dataSource">
 <table mat-table [dataSource]="dataSource" class="servicios">
     <ng-container matColumnDef="posicion">
         <th mat-header-cell *matHeaderCellDef> No. </th>
@@ -9,6 +9,10 @@
         <th mat-header-cell *matHeaderCellDef> Nombre </th>
         <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
       </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
 </table>
 </div>
 

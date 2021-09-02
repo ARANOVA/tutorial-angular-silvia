@@ -1,22 +1,22 @@
 <h1>Libros recomendados de la semana</h1>
-<div *ngIf="libros">
-<mat-grid-list cols="5"class="grid-list">
-    <mat-grid-tile>
-        <mat-card>
+<div *ngIf="libros" style="display: flex; flex-wrap: wrap;  flex-direction: row">
+        <mat-card  *ngFor="let libro of libros" style="width: 40%; margin: 10px">
           <mat-card-header>
             <div mat-card-avatar class="image"></div>
-            <mat-card-title>Drácula</mat-card-title>
-            <mat-card-subtitle>Bram Stoker</mat-card-subtitle>
+            <mat-card-title>{{ libro.title }}</mat-card-title>
+            <mat-card-subtitle>{{ libro.subtitle }}</mat-card-subtitle>
           </mat-card-header>
-          <img mat-card-image src="https://www.lifeder.com/wp-content/uploads/2016/06/51SuvFHaXKL._AC_US160_.jpg">
+          <img mat-card-image [src]="libro.image">
           <mat-card-content>
-            <p>SINOPSIS:
-                Novela epistolar, narración en la que se elevan distintas y apasionadas voces, intensa historia de amores y sentimientos, ejemplo indiscutible de novela gótica. El irlandés Bram Stoker no soñaba con que su libro, publicado en 1897, se convertiría en un clásico una y mil veces visitado y reinterpretado, desde Bela Lugosi a Francis Ford Coppola.
-                «Bienvenido a mi casa. Entre libremente. Pase sin temor. ¡Y deje en ella un poco de la felicidad que trae consigo!»
-            </p>
+            <p>SINOPSIS:</p>
+            <p>{{ libro.sinopsis }}</p>
           </mat-card-content>
         </mat-card>
-      </mat-grid-tile>
+
+      <!--
+        <mat-grid-list cols="5" class="grid-list">
+            <mat-grid-tile>
+            </mat-grid-tile>
       <mat-grid-tile>
           <mat-card>
               <mat-card-header>
@@ -132,6 +132,7 @@
     </mat-card-content>
 </mat-grid-tile>
   </mat-grid-list>
+-->
 </div>
 
 <button (click)="navigate(['/', 'home'])">Back</button>

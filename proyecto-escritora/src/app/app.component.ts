@@ -1,4 +1,5 @@
-import { Component, NgZone} from '@angular/core';
+import { Component, ElementRef, NgZone, ViewChild} from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 
 import { Router } from '@angular/router';
 
@@ -10,6 +11,8 @@ import { Router } from '@angular/router';
 
 export class AppComponent {
   title = 'proyecto-escritora';
+  opened: boolean = true;
+  @ViewChild("sidenav") sidenav!: MatSidenav;
 
   constructor(
     private _router: Router,
@@ -17,6 +20,11 @@ export class AppComponent {
     ) {
   }
 
+  toggle() {
+    this.opened = !this.opened;
+    console.log(this.sidenav);
+    this.sidenav.toggle();
+  }
   navigate(route: string[]) {
     this._ngZone.run(() => {
       this._router.navigate(route);

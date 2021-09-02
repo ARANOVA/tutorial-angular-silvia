@@ -62,27 +62,6 @@ $dark-theme: mat.define-dark-theme((
   color: mat.get-color-from-palette($indigo-palette, '500-contrast');
  }
 
- .main{
-   background-color: black;
-   font: white;
- }
-
- .container {
-  position: left;
-  width: 200px;
-  height: 800px;
-  margin: 10px;
-  border: 1px solid #555;
-  text-align: center;
-}
-
-.sidenav-content{
-  display: flex;
-  height: 100%;
-  align-items: flex-start;
-  justify-content: center;
-}
-
 $app-typography: mat.define-typography-config(
   $font-family: 'Roboto, Arial, sans-serif',
   $display-4: mat.define-typography-level(112px, 112px, 300, $letter-spacing: 0.05em),

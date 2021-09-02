@@ -15,11 +15,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LibrosRecomendadosComponent } from './libros-recomendados/libros-recomendados.component';
+import { EditorialesSugeridasComponent } from './editoriales-sugeridas/editoriales-sugeridas.component';
+import { ServiciosEditorialesComponent } from './servicios-editoriales/servicios-editoriales.component';
+import { TarifasEdicionComponent } from './tarifas-edicion/tarifas-edicion.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LibrosRecomendadosComponent
+    LibrosRecomendadosComponent,
+    EditorialesSugeridasComponent,
+    ServiciosEditorialesComponent,
+    TarifasEdicionComponent
   ],
   imports: [
     BrowserModule,

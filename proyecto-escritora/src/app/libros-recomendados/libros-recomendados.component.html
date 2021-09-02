@@ -1,49 +1,4 @@
-<mat-toolbar color="primary">
-    <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with menu ">
-        <mat-icon>menu</mat-icon>
-    </button>
-    <span><a href="../app.component.html">Proyecto Escritora</a></span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
-    </button>
-  </mat-toolbar>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <mat-icon>LI</mat-icon>
-      <span><a href="./libros-recomendados/libros-recomendados.component.html">Libros recomendados</a></span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>T</mat-icon>
-      <span>Talleres y Cursos</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>E</mat-icon>
-      <span>Editoriales Sugeridas</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>S</mat-icon>
-      <span>Servicios Editoriales</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>TA</mat-icon>
-      <span>Tarifas de Edición</span>
-    </button>
-    <button mat-menu-item>
-      <mat-icon>AG</mat-icon>
-      <span>Agentes Literarios</span>
-    </button>
-  </mat-menu>
- <mat-sidenav-container class="container">
-    <mat-sidenav class="sidenav" mode="side">
-      </mat-sidenav>
-      <h1>Géneros</h1>
-      <mat-divider></mat-divider>
-      <h1>Autores</h1>
-  </mat-sidenav-container>
+<div *ngIf="libros">
 <h1>Libros recomendados de la semana</h1>
 <mat-grid-list cols="5"class="grid-list">
     <mat-grid-tile>
@@ -177,3 +132,5 @@ Este libro se trata de uno de los mayores best seller de la historia del género
     </mat-card-content>
 </mat-grid-tile>
   </mat-grid-list>
+</div>
+<button (click)="goBack()">Back</button>

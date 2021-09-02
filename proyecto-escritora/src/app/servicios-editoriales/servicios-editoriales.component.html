@@ -1,1 +1,13 @@
-<p>servicios-editoriales works!</p>
+<h1>Servicios Editoriales disponibles en la web</h1>
+<table mat-table [dataSource]="dataSource" class="servicios" *ngIf="servicios">
+    <ng-container matColumnDef="posicion">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.posicion}} </td>
+      </ng-container>
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container>
+</table>
+
+<button (click)="navigate(['/', 'home'])">Back</button>

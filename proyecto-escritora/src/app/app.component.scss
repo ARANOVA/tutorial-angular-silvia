@@ -10,10 +10,9 @@
     border: 1px solid #555;
     text-align: center;
   }
-  
-  .sidenav-content{
-    display: flex;
-    height: 100%;
-    align-items: flex-start;
-    justify-content: center;
-  }
+
+.grid-list{
+    position: right;
+    justify-items: justify;
+    text-align: center;
+}

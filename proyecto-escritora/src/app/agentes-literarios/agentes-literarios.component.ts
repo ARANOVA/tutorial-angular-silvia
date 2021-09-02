@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { Router } from '@angular/router';
+
+export interface agente{
+  nombre: string;
+  email: string;
+}
 
 @Component({
   selector: 'app-agentes-literarios',
@@ -6,10 +12,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agentes-literarios.component.scss']
 })
 export class AgentesLiterariosComponent implements OnInit {
+  agentes: agente | undefined;
 
-  constructor() { }
+  constructor(
+    private _router: Router,
+    private _ngZone: NgZone
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  navigate(route: string[]) {
+    this._ngZone.run(() => {
+      this._router.navigate(route);
+    });
   }
 
 }

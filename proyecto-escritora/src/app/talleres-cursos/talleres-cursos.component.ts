@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { Router } from '@angular/router';
+
+export interface taller{
+  nombre: string;
+}
 
 @Component({
   selector: 'app-talleres-cursos',
@@ -6,10 +11,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./talleres-cursos.component.scss']
 })
 export class TalleresCursosComponent implements OnInit {
+  talleres: taller | undefined;
 
-  constructor() { }
+  constructor(
+    private _router: Router,
+    private _ngZone: NgZone
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  navigate(route: string[]) {
+    this._ngZone.run(() => {
+      this._router.navigate(route);
+    });
   }
 
 }

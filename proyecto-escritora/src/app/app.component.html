@@ -16,11 +16,11 @@
       <mat-icon>LI</mat-icon>
       <span>Libros recomendados</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="navigate(['/', 'talleres'])">
       <mat-icon>T</mat-icon>
       <span>Talleres y Cursos</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="navigate(['/', 'editoriales'])">
       <mat-icon>E</mat-icon>
       <span>Editoriales Sugeridas</span>
     </button>
@@ -28,11 +28,11 @@
       <mat-icon>S</mat-icon>
       <span>Servicios Editoriales</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="navigate(['/', 'tarifas'])">
       <mat-icon>TA</mat-icon>
       <span>Tarifas de Edición</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click)="navigate(['/', 'agentes'])">
       <mat-icon>AG</mat-icon>
       <span>Agentes Literarios</span>
     </button>

@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { Router } from '@angular/router';
+
+export interface tarifa{
+  precio: number;
+}
 
 @Component({
   selector: 'app-tarifas-edicion',
@@ -6,10 +11,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tarifas-edicion.component.scss']
 })
 export class TarifasEdicionComponent implements OnInit {
+  tarifas: tarifa | undefined;
 
-  constructor() { }
+  constructor(
+    private _router: Router,
+    private _ngZone: NgZone
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  navigate(route: string[]) {
+    this._ngZone.run(() => {
+      this._router.navigate(route);
+    });
   }
 
 }

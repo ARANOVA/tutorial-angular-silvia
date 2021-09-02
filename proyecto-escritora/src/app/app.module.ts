@@ -20,6 +20,8 @@ import { EditorialesSugeridasComponent } from './editoriales-sugeridas/editorial
 import { ServiciosEditorialesComponent } from './servicios-editoriales/servicios-editoriales.component';
 import { TarifasEdicionComponent } from './tarifas-edicion/tarifas-edicion.component';
 import { HomeComponent } from './home/home.component';
+import { TalleresCursosComponent } from './talleres-cursos/talleres-cursos.component';
+import { AgentesLiterariosComponent } from './agentes-literarios/agentes-literarios.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { HomeComponent } from './home/home.component';
     EditorialesSugeridasComponent,
     ServiciosEditorialesComponent,
     TarifasEdicionComponent,
-    HomeComponent
+    HomeComponent,
+    TalleresCursosComponent,
+    AgentesLiterariosComponent
   ],
   imports: [
     BrowserModule,

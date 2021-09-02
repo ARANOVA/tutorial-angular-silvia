@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-editoriales-sugeridas',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditorialesSugeridasComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _router: Router,
+    private _ngZone: NgZone
+  ) { }
 
   ngOnInit(): void {
   }
-
+ 
+  navigate(route: string[]) {
+    this._ngZone.run(() => {
+      this._router.navigate(route);
+    });
+  }
 }

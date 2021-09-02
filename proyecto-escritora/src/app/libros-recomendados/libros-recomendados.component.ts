@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-libros-recomendados',
@@ -9,14 +10,17 @@ export class LibrosRecomendadosComponent implements OnInit {
   libros: any | undefined;
 
   constructor(
-    private location: Location
+    private _router: Router,
+    private _ngZone: NgZone
   ) { }
 
   ngOnInit(): void {
   }
 
-  goBack(): void{
-    this.location.href="../app.component.html";
+  navigate(route: string[]) {
+    this._ngZone.run(() => {
+      this._router.navigate(route);
+    });
   }
 
 }

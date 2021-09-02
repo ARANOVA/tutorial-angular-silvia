@@ -1,6 +1,5 @@
-import { Component, NgZone, ViewChild } from '@angular/core';
-import { MatMenuTrigger } from '@angular/material/menu';
-import { BehaviorSubject } from 'rxjs';
+import { Component, NgZone} from '@angular/core';
+
 import { Router } from '@angular/router';
 
 @Component({

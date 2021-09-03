@@ -1,9 +1,8 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 
-export interface editorial{
+export interface Editorial{
   nombre: string;
-  telefono: number;
   email: string;
 }
 
@@ -13,12 +12,23 @@ export interface editorial{
   styleUrls: ['./editoriales-sugeridas.component.scss']
 })
 export class EditorialesSugeridasComponent implements OnInit {
-  editoriales: editorial | undefined;
+  editoriales: Editorial[] | undefined;
 
   constructor(
     private _router: Router,
     private _ngZone: NgZone
-  ) { }
+  ) { 
+    this.editoriales = [
+      {
+        nombre:'Bruno Mars',
+        email:'bmars@editorial.com'
+      },
+      {
+        nombre:'Circulo Rojo',
+        email:'circojo@circuloeditorial.com'
+      }
+    ]
+  }
 
   ngOnInit(): void {
   }

@@ -12,7 +12,7 @@ import { Dialog, Taller } from 'src/app/interfaces/talleres.interface';
 export class TalleresCursosComponent implements OnInit {
     talleres: Taller[] | undefined;
     name: string[] = [];
-    email = '';
+    email: string[] = [];
 
     constructor(
         public dialog: MatDialog,
@@ -23,16 +23,20 @@ export class TalleresCursosComponent implements OnInit {
             {
                 id: 1,
                 nombre: 'Taller de lectura',
-                descripcion: 'Suscribiéndote a este curso podrás leer un libro diferente cada semana. <br>Si te suscribes nosotros te enviamos sugerencias por correo electrónico.'
+                descripcion: 'Suscribiéndote a este curso podrás leer un libro diferente cada semana. Si te suscribes nosotros te enviamos sugerencias por correo electrónico.'
             },
             {
                 id: 2,
                 nombre: 'Taller de escritura',
-                descripcion: 'Es ideal para quienes pretenden iniciarse en el mundo de la escritura. <br>¡Suscríbete para empezar tu aventura!'
+                descripcion: 'Es ideal para quienes pretenden iniciarse en el mundo de la escritura. ¡Suscríbete para empezar tu aventura!'
             }
         ];
         this.talleres.forEach((taller: Taller) => {
             this.name[taller.id] = '';
+        });
+
+        this.talleres.forEach((taller: Taller) =>{
+            this.email[taller.id] = '';
         });
     }
 
@@ -42,12 +46,12 @@ export class TalleresCursosComponent implements OnInit {
     openDialog(id: number): void {
         const dialogRef = this.dialog.open(TalleresDialogComponent, {
             width: '250px',
-            data: <Dialog>{ name: this.name[id], email: this.email }
+            data: <Dialog>{ name: this.name[id], email: this.email[id] }
         });
         dialogRef.afterClosed().subscribe((result: string) => {
             console.log('The dialog was closed');
             // Asignar al taller
-            this.email = result;
+            this.email[id] = result;
         });
     }
 

@@ -2,6 +2,17 @@
 
 <div *ngIf="tarifas">
 
+    <mat-card  *ngFor="let tarifa of tarifas" style="width: 40%; margin: 10px">
+        <mat-card-header>
+          <div mat-card-avatar class="image"></div>
+          <mat-card-title>{{ tarifa.nombre }}</mat-card-title>
+          <mat-card-subtitle>{{ tarifa.precio }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p> {{ tarifa.info }} </p>
+        </mat-card-content>
+      </mat-card>
+
 </div>
 
 <button (click)="navigate(['/', 'home'])">Back</button>

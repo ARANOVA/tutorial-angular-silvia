@@ -2,6 +2,17 @@
 
 <div *ngIf="editoriales">
 
+    <mat-card  *ngFor="let editorial of editoriales" style="width: 40%; margin: 10px">
+        <mat-card-header>
+          <div mat-card-avatar class="material-icons"></div>
+          <mat-card-title>{{ editorial.nombre }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <span class="material-icons">contact_mail</span>
+            <a href="{{editorial.email}}">{{editorial.email}}</a>
+        </mat-card-content>
+      </mat-card>
+
 </div>
 
 <button (click)="navigate(['/', 'home'])">Back</button>

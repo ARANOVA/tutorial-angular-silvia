@@ -12,8 +12,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
-import {MatInputModule} from '@angular/material/input';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +25,8 @@ import { TarifasEdicionComponent } from './tarifas-edicion/tarifas-edicion.compo
 import { HomeComponent } from './home/home.component';
 import { TalleresCursosComponent } from './talleres-cursos/talleres-cursos.component';
 import { AgentesLiterariosComponent } from './agentes-literarios/agentes-literarios.component';
+import { FormsModule } from '@angular/forms';
+import { TalleresDialogComponent } from './talleres-cursos/talleres-dialog/talleres-dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { AgentesLiterariosComponent } from './agentes-literarios/agentes-literar
     TarifasEdicionComponent,
     HomeComponent,
     TalleresCursosComponent,
-    AgentesLiterariosComponent
+    AgentesLiterariosComponent,
+    TalleresDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { AgentesLiterariosComponent } from './agentes-literarios/agentes-literar
     MatTableModule,
     MatListModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

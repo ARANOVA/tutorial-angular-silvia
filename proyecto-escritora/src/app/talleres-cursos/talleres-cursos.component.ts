@@ -29,6 +29,26 @@ export class TalleresCursosComponent implements OnInit {
                 id: 2,
                 nombre: 'Taller de escritura',
                 descripcion: 'Es ideal para quienes pretenden iniciarse en el mundo de la escritura. ¡Suscríbete para empezar tu aventura!'
+            },
+            {
+                id: 3,
+                nombre: 'Curso para correctores',
+                descripcion: 'El adecuado para aprender a corregir un manuscrito ya terminado.'
+            },
+            {
+                id: 4,
+                nombre: 'Curso para editores',
+                descripcion: 'Perfecto para aquellos que pretenden ser editores.'
+            },
+            {
+                id: 5,
+                nombre: 'Curso para diseñadores',
+                descripcion: 'Si tienes aptitudes para el diseño gráfico puedes aprender a elaborar portadas de los libros que te presenten. Aquí puedes aprender a maquetarlas.'
+            },
+            {
+                id: 6,
+                nombre: 'Taller de publicación',
+                descripcion: 'El taller ideal para los que no se quieren quedar en la simple escritura o lectura de un libro.'
             }
         ];
         this.talleres.forEach((taller: Taller) => {

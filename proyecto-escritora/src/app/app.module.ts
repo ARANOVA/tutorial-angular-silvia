@@ -14,6 +14,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
+import { SuscriptoresService } from './talleres-cursos/suscriptores.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,6 +28,7 @@ import { TalleresCursosComponent } from './talleres-cursos/talleres-cursos.compo
 import { AgentesLiterariosComponent } from './agentes-literarios/agentes-literarios.component';
 import { FormsModule } from '@angular/forms';
 import { TalleresDialogComponent } from './talleres-cursos/talleres-dialog/talleres-dialog.component';
+import { SuscriptoresComponent } from './talleres-cursos/suscriptores/suscriptores.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { TalleresDialogComponent } from './talleres-cursos/talleres-dialog/talle
     HomeComponent,
     TalleresCursosComponent,
     AgentesLiterariosComponent,
-    TalleresDialogComponent
+    TalleresDialogComponent,
+    SuscriptoresComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,9 @@ import { TalleresDialogComponent } from './talleres-cursos/talleres-dialog/talle
     MatDialogModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    SuscriptoresService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

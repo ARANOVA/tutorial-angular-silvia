@@ -14,7 +14,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
-import { SuscriptoresService } from './talleres-cursos/suscriptores.service';
+import { SuscriptoresService } from './services/suscriptores.service';
 import { MatSelectModule } from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';

@@ -1,17 +1,11 @@
-<table>
-<tr *nfIf="!suscriptores.lenght">
-    <td colspan="3">Sin resultados</td>
-</tr>
-</table>
 
-
-<mat-form-field appearance="name">
-    <mat-label>Name</mat-label>
-    <input matInput>
+<mat-form-field appearance="fill">
+    <mat-label>Nombre</mat-label>
+    <input matInput [(ngModel)]= "suscriptor.nombre">
 </mat-form-field>
 <mat-form-field appearance="fill">
     <mat-label>Seleccione un taller al que suscribirse</mat-label>
-  <mat-select>
+  <mat-select [(ngModel)]= "suscriptor.taller">
     <mat-option value="one">Taller de lectura</mat-option>
     <mat-option value="two">Taller de escritura</mat-option>
     <mat-option value="three">Curso para correctores</mat-option>
@@ -20,22 +14,26 @@
     <mat-option value="six">Taller de publicación</mat-option>
   </mat-select>
 </mat-form-field>
-<mat-form-field appearance="email">
+<mat-form-field appearance="fill">
     <mat-label>Email</mat-label>
-    <input matInput>
+    <input matInput [(ngModel)]="suscriptor.email">
 </mat-form-field>
+<button (click)="crearsuscriptor()">Crear Suscriptor</button>
 
 <table>
-<tr *ngFor="let suscriptor of suscriptores; let s= suscriptor">
-    <td>#{{s}}</td>
-    <td>Nombre</td>
+    
+    <tr *ngIf="!suscriptores?.length">
+        <td colspan="5">Sin resultados</td>
+    </tr>
+    
+
+<tr *ngFor="let suscriptor of suscriptores; let idx= index">
+    <td>#{{idx}}</td>
+    <td>{{suscriptor.id}}</td>
     <td>{{suscriptor.nombre}}</td>
     <td>{{suscriptor.taller}}</td>
     <td>
-        <button (click)="eliminarsuscriptor(s)">Eliminar Suscriptor</button>
-    </td>
-    <td>
-        <button (click)="crearsuscriptor(s)">Crear Suscriptor</button>
+        <button (click)="eliminarsuscriptor(suscriptor.id)">Eliminar Suscriptor</button>
     </td>
 </tr>
 </table>

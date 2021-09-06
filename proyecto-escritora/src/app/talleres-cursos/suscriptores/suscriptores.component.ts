@@ -20,6 +20,8 @@ export class SuscriptoresComponent implements OnInit, OnDestroy {
   talleres: Taller[] | undefined;
   dialog: Dialog[] | undefined;
   private _subscription: Subscription = new Subscription;
+  suscriptoresSubject: any;
+  suscriptor: Suscriptores[] | undefined;
   public get subscription(): Subscription {
     return this._subscription;
   }
@@ -31,7 +33,7 @@ export class SuscriptoresComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscription = this.suscriptoresService.suscriptoresObservable$.subscribe((suscriptores: Array<{}>)=>{
-      this.suscriptores = suscriptores;
+      this.suscriptor = suscriptores;
     }
   }
 
@@ -42,13 +44,13 @@ export class SuscriptoresComponent implements OnInit, OnDestroy {
   }
 
   crearsuscriptor(){
-    this.suscriptores.push({id: 0, nombre:'', taller: Selection, email:'' + this.suscriptores.length});
-    this.sucriptoresSubject.next(this.suscriptores);
+    this.suscriptor.push({id: 0, nombre:'', taller: Selection, email:'' + this.suscriptor.length});
+    this.suscriptoresSubject.next(this.suscriptor);
   }
 
   eliminarsuscriptor(suscriptor: Array<Suscriptores>){
-    this.suscriptores.splice(suscriptor);
-    this.sucriptoresSubject.next(this.suscriptores);
+    this.suscriptor.splice(1);
+    this.suscriptoresSubject.next(this.suscriptores);
   }
 
 }

@@ -19,7 +19,13 @@ export interface Suscriptores{
 export class SuscriptoresComponent implements OnInit, OnDestroy {
   talleres: Taller[] | undefined;
   dialog: Dialog[] | undefined;
-  public subscription: Subscription;
+  private _subscription: Subscription = new Subscription;
+  public get subscription(): Subscription {
+    return this._subscription;
+  }
+  public set subscription(value: Subscription) {
+    this._subscription = value;
+  }
 
   constructor(private suscriptoresService: SuscriptoresService) { }
 
@@ -33,6 +39,16 @@ export class SuscriptoresComponent implements OnInit, OnDestroy {
     if(this.subscription){
       this.subscription.unsubscribe();
     }
+  }
+
+  crearsuscriptor(){
+    this.suscriptores.push({id: 0, nombre:'', taller: Selection, email:'' + this.suscriptores.length});
+    this.sucriptoresSubject.next(this.suscriptores);
+  }
+
+  eliminarsuscriptor(suscriptor: Array<Suscriptores>){
+    this.suscriptores.splice(suscriptor);
+    this.sucriptoresSubject.next(this.suscriptores);
   }
 
 }

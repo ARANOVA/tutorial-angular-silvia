@@ -20,6 +20,7 @@ export class SuscriptoresService {
     constructor() { }
 
     crearsuscriptor(suscriptor: Suscriptor) {
+        suscriptor.id= this.__suscriptores.length;
         this.__suscriptores.push(suscriptor);
         this.__suscriptoresSubject.next(this.__suscriptores);
     }

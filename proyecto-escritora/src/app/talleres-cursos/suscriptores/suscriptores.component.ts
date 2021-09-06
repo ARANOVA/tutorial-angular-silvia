@@ -1,6 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { Dialog, Taller } from 'src/app/interfaces/talleres.interface';
+import { Taller } from 'src/app/interfaces/talleres.interface';
 import { Subscription } from 'rxjs';
 import { Suscriptor, SuscriptoresService } from '../../services/suscriptores.service';
 
@@ -37,6 +36,7 @@ export class SuscriptoresComponent implements OnDestroy {
 
     crearsuscriptor() {
         this.__suscriptoresService.crearsuscriptor(this.suscriptor);
+        this.suscriptor = {id: 0, nombre:'' , taller: '', email: ''};
     }
 
     eliminarsuscriptor(id: number) {
